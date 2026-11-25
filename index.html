@@ -4,17 +4,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Wix Creative Real Estate - Discover beautiful homes, luxury properties and investment opportunities.">
-<title>Wix Creative | Find Your Dream Home</title>
+<meta name="description" content="Wix Kitchen - Discover delicious recipes, cooking tips and amazing food from around the world.">
+<title>Wix Kitchen | Discover Delicious Recipes</title>
 
 <style>
 :root {
-    --blue: #123e75;
-    --dark: #102b4e;
-    --light: #f3f7fc;
+    --gold: #d6a844;
+    --black: #101010;
+    --dark: #191919;
+    --card: #222222;
     --white: #ffffff;
-    --gold: #e8b85b;
-    --text: #526176;
+    --muted: #b6b6b6;
 }
 
 * {
@@ -25,8 +25,9 @@
 }
 
 body {
+    background: var(--black);
+    color: var(--white);
     font-family: Arial, sans-serif;
-    color: var(--dark);
     line-height: 1.6;
 }
 
@@ -35,20 +36,24 @@ a {
     color: inherit;
 }
 
+button, input {
+    font: inherit;
+}
+
 .container {
     width: 90%;
-    max-width: 1150px;
+    max-width: 1200px;
     margin: auto;
 }
 
 /* NAVIGATION */
 
 header {
-    background: white;
+    background: #151515;
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 2px 12px #0000000c;
+    border-bottom: 1px solid #333;
 }
 
 nav {
@@ -59,331 +64,450 @@ nav {
 }
 
 .logo {
-    font-size: 25px;
-    font-weight: 800;
-    color: var(--blue);
+    font-size: 27px;
+    font-weight: 900;
+    color: var(--gold);
+    letter-spacing: 1px;
 }
 
 .logo span {
-    color: var(--gold);
+    color: white;
 }
 
 .nav-links {
     display: flex;
-    align-items: center;
-    gap: 28px;
     list-style: none;
+    gap: 28px;
+    align-items: center;
 }
 
 .nav-links a:hover {
-    color: #2678cb;
+    color: var(--gold);
 }
 
 .nav-btn {
-    background: var(--blue);
-    color: white !important;
+    background: var(--gold);
+    color: black !important;
     padding: 11px 20px;
-    border-radius: 6px;
+    border-radius: 5px;
+    font-weight: bold;
 }
 
 .menu-btn {
     display: none;
     background: none;
+    color: white;
     border: none;
     font-size: 27px;
-    color: var(--blue);
     cursor: pointer;
 }
 
 /* HERO */
 
 .hero {
-    min-height: 570px;
+    min-height: 540px;
     display: flex;
     align-items: center;
     background:
-    linear-gradient(90deg, #071e3be8, #071e3b55),
-    url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1800') center/cover;
-    color: white;
+    linear-gradient(90deg, #080808e8, #08080855),
+    url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1800')
+    center/cover;
 }
 
 .hero-content {
-    max-width: 700px;
+    max-width: 650px;
     padding: 90px 0;
 }
 
-.hero-label {
+.hero small {
     color: var(--gold);
     font-weight: bold;
-    letter-spacing: 3px;
-    text-transform: uppercase;
+    letter-spacing: 4px;
 }
 
 .hero h1 {
-    font-size: clamp(40px, 6vw, 66px);
-    line-height: 1.15;
+    font-size: clamp(40px, 6vw, 68px);
+    line-height: 1.1;
     margin: 20px 0;
 }
 
 .hero p {
+    color: #dddddd;
     font-size: 18px;
-    color: #e5edf7;
-    max-width: 560px;
 }
 
 .btn {
     display: inline-block;
+    border: none;
+    background: var(--gold);
+    color: black;
     padding: 14px 25px;
-    border-radius: 6px;
+    border-radius: 5px;
     font-weight: bold;
-    margin-top: 25px;
+    cursor: pointer;
+    margin-top: 22px;
     transition: .3s;
 }
 
-.btn-primary {
-    background: var(--gold);
-    color: #152b43;
-}
-
-.btn-primary:hover {
+.btn:hover {
     background: white;
     transform: translateY(-3px);
 }
 
-.btn-outline {
-    border: 1px solid white;
-    color: white;
-    margin-left: 10px;
-}
-
-.btn-outline:hover {
-    background: white;
-    color: var(--blue);
-}
-
-/* GENERAL */
+/* GENERAL SECTIONS */
 
 section {
-    padding: 85px 0;
+    padding: 75px 0;
 }
 
 .section-title {
     text-align: center;
-    margin-bottom: 45px;
+    margin-bottom: 40px;
 }
 
 .section-title small {
-    color: #2875bd;
+    color: var(--gold);
+    letter-spacing: 3px;
     font-weight: bold;
-    letter-spacing: 2px;
-    text-transform: uppercase;
 }
 
 .section-title h2 {
-    font-size: 35px;
-    margin-top: 10px;
+    font-size: 36px;
+    margin-top: 8px;
 }
 
 .section-title p {
-    color: var(--text);
-    max-width: 600px;
-    margin: 10px auto;
+    color: var(--muted);
+    margin-top: 10px;
+}
+
+/* SEARCH */
+
+.search-area {
+    background: var(--dark);
+    padding: 35px 0;
+}
+
+.search-box {
+    max-width: 650px;
+    margin: auto;
+    display: flex;
+    gap: 10px;
+}
+
+.search-box input {
+    flex: 1;
+    padding: 15px;
+    border-radius: 6px;
+    border: 1px solid #444;
+    background: #292929;
+    color: white;
+    outline: none;
+}
+
+.search-box input:focus {
+    border-color: var(--gold);
+}
+
+.search-box button {
+    background: var(--gold);
+    border: none;
+    padding: 0 20px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+/* CATEGORIES */
+
+.categories {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 35px;
+}
+
+.category {
+    padding: 10px 20px;
+    border: 1px solid #555;
+    color: white;
+    background: #222;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.category:hover,
+.category.active {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: black;
+}
+
+/* RECIPE CARDS */
+
+.recipe-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.recipe-card {
+    background: var(--card);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #333;
+    transition: .3s;
+}
+
+.recipe-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--gold);
+}
+
+.recipe-image {
+    position: relative;
+    height: 220px;
+    overflow: hidden;
+}
+
+.recipe-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: .4s;
+}
+
+.recipe-card:hover img {
+    transform: scale(1.06);
+}
+
+.favorite {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: #151515dd;
+    border: none;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    color: white;
+    font-size: 21px;
+    cursor: pointer;
+}
+
+.favorite.active {
+    color: #ff4545;
+}
+
+.recipe-info {
+    padding: 20px;
+}
+
+.recipe-info small {
+    color: var(--gold);
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.recipe-info h3 {
+    font-size: 21px;
+    margin: 8px 0;
+}
+
+.recipe-info p {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.recipe-meta {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    color: var(--gold);
+    font-size: 13px;
+}
+
+.view-recipe {
+    display: block;
+    text-align: center;
+    background: var(--gold);
+    color: black;
+    padding: 11px;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-top: 17px;
+    cursor: pointer;
+    border: none;
+    width: 100%;
+}
+
+.empty {
+    text-align: center;
+    color: var(--muted);
+    grid-column: 1 / -1;
+    padding: 35px;
 }
 
 /* ABOUT */
 
+.about {
+    background: #191919;
+}
+
 .about-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    gap: 45px;
     align-items: center;
-    gap: 50px;
 }
 
-.about-image img {
+.about-grid img {
     width: 100%;
     border-radius: 12px;
 }
 
 .about-text h2 {
-    font-size: 35px;
+    font-size: 37px;
     line-height: 1.2;
-    margin-bottom: 20px;
+    margin: 15px 0;
 }
 
 .about-text p {
-    color: var(--text);
+    color: var(--muted);
     margin-bottom: 15px;
 }
 
-/* SERVICES */
+/* COOKING TIPS */
 
-.services {
-    background: var(--light);
-}
-
-.service-grid {
+.tips-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
+    gap: 22px;
 }
 
-.service-card {
-    background: white;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 5px 25px #18395a0a;
-    transition: .3s;
+.tip {
+    background: var(--card);
+    padding: 28px;
+    border-radius: 10px;
+    border: 1px solid #333;
 }
 
-.service-card:hover {
-    transform: translateY(-7px);
+.tip .icon {
+    font-size: 35px;
 }
 
-.service-icon {
-    font-size: 38px;
-    margin-bottom: 15px;
+.tip h3 {
+    color: var(--gold);
+    margin: 12px 0;
 }
 
-.service-card h3 {
-    margin-bottom: 10px;
+.tip p {
+    color: var(--muted);
 }
 
-.service-card p {
-    color: var(--text);
-}
+/* NEWSLETTER */
 
-/* PROPERTIES */
-
-.property-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
-}
-
-.property-card {
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 5px 25px #18395a14;
-    background: white;
-}
-
-.property-card img {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-    display: block;
-    transition: .4s;
-}
-
-.property-card:hover img {
-    transform: scale(1.04);
-}
-
-.property-image {
-    overflow: hidden;
-}
-
-.property-info {
-    padding: 20px;
-}
-
-.property-info h3 {
-    margin-bottom: 8px;
-}
-
-.property-info p {
-    color: var(--text);
-    font-size: 14px;
-}
-
-.property-tag {
-    color: #2875bd;
-    font-size: 12px;
-    font-weight: bold;
-    text-transform: uppercase;
-}
-
-/* WHY US */
-
-.why {
-    background: var(--dark);
-    color: white;
-}
-
-.why-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
+.newsletter {
+    background: linear-gradient(120deg, #382a12, #171717);
     text-align: center;
 }
 
-.why-card {
-    padding: 25px;
+.newsletter p {
+    color: #ddd;
+    margin-top: 10px;
 }
 
-.why-card h3 {
-    color: var(--gold);
-    margin-bottom: 10px;
-}
-
-/* CONTACT */
-
-.contact {
-    background: var(--light);
-}
-
-.contact-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-}
-
-.contact-details p {
-    margin: 20px 0;
-    color: var(--text);
-}
-
-.contact-form {
-    background: white;
-    padding: 30px;
-    border-radius: 12px;
-}
-
-.contact-form input,
-.contact-form textarea {
-    width: 100%;
+.newsletter input {
     padding: 14px;
-    margin: 10px 0;
-    border: 1px solid #dce3ec;
-    border-radius: 6px;
-    font-family: inherit;
-    font-size: 15px;
-}
-
-.contact-form textarea {
-    min-height: 120px;
-    resize: vertical;
-}
-
-.contact-form button {
-    width: 100%;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
+    width: min(350px, 100%);
+    margin-top: 20px;
+    background: #222;
+    border: 1px solid #555;
+    color: white;
+    border-radius: 5px;
 }
 
 /* FOOTER */
 
 footer {
-    background: #0b1d32;
-    color: white;
-    padding: 40px 0;
+    background: #090909;
     text-align: center;
+    padding: 45px 0;
+    border-top: 1px solid #333;
+}
+
+footer h2 {
+    color: var(--gold);
+    font-size: 28px;
 }
 
 footer p {
-    color: #b9c7d7;
+    color: var(--muted);
     margin-top: 10px;
+}
+
+/* RECIPE MODAL */
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    inset: 0;
+    background: #000d;
+    overflow-y: auto;
+    padding: 25px 12px;
+}
+
+.modal.show {
+    display: block;
+}
+
+.modal-content {
+    max-width: 700px;
+    background: #202020;
+    border: 1px solid #555;
+    border-radius: 12px;
+    margin: 20px auto;
+    padding: 25px;
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 18px;
+    color: white;
+    font-size: 30px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.modal-content h2 {
+    color: var(--gold);
+    margin: 15px 0;
+}
+
+.modal-content img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.modal-content ul,
+.modal-content ol {
+    padding-left: 25px;
+    color: #ddd;
+}
+
+.modal-content li {
+    margin: 8px 0;
+}
+
+.modal-content h3 {
+    margin: 20px 0 10px;
 }
 
 /* WHATSAPP */
@@ -392,17 +516,16 @@ footer p {
     position: fixed;
     bottom: 25px;
     right: 25px;
+    width: 55px;
+    height: 55px;
     background: #25d366;
     color: white;
-    width: 58px;
-    height: 58px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 28px;
     border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 27px;
     z-index: 1000;
-    box-shadow: 0 4px 15px #0003;
 }
 
 /* MOBILE */
@@ -418,42 +541,44 @@ footer p {
         top: 75px;
         left: 0;
         width: 100%;
-        background: white;
+        background: #151515;
         flex-direction: column;
         padding: 25px;
         gap: 20px;
-        box-shadow: 0 8px 15px #0001;
     }
 
     .nav-links.active {
         display: flex;
     }
 
+    .recipe-grid,
+    .tips-grid,
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+
     .hero {
-        min-height: 520px;
+        min-height: 480px;
     }
 
-    .hero-content {
-        padding: 70px 0;
-    }
-
-    .about-grid,
-    .contact-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .service-grid,
-    .property-grid,
-    .why-grid {
-        grid-template-columns: 1fr;
+    .hero h1 {
+        font-size: 43px;
     }
 
     .section-title h2 {
-        font-size: 29px;
+        font-size: 28px;
     }
 
-    .btn-outline {
-        margin-left: 0;
+    .search-box {
+        flex-direction: column;
+    }
+
+    .search-box button {
+        padding: 13px;
+    }
+
+    .about-text h2 {
+        font-size: 30px;
     }
 }
 </style>
@@ -461,345 +586,713 @@ footer p {
 
 <body>
 
+<!-- NAVIGATION -->
+
 <header>
-    <nav class="container">
-        <a href="#home" class="logo">WIX<span> CREATIVE.</span></a>
+<nav class="container">
+    <a href="#home" class="logo">WIX <span>KITCHEN.</span></a>
 
-        <button class="menu-btn" onclick="toggleMenu()" aria-label="Toggle navigation">☰</button>
+    <button class="menu-btn" onclick="toggleMenu()">☰</button>
 
-        <ul class="nav-links" id="navLinks">
-            <li><a href="#home" onclick="closeMenu()">Home</a></li>
-            <li><a href="#about" onclick="closeMenu()">About</a></li>
-            <li><a href="#services" onclick="closeMenu()">Services</a></li>
-            <li><a href="#properties" onclick="closeMenu()">Properties</a></li>
-            <li><a href="#contact" class="nav-btn" onclick="closeMenu()">Contact Us</a></li>
-        </ul>
-    </nav>
+    <ul class="nav-links" id="navLinks">
+        <li><a href="#home" onclick="closeMenu()">Home</a></li>
+        <li><a href="#recipes" onclick="closeMenu()">Recipes</a></li>
+        <li><a href="#about" onclick="closeMenu()">About</a></li>
+        <li><a href="#tips" onclick="closeMenu()">Cooking Tips</a></li>
+        <li><a href="#favorites" onclick="showFavorites()">Favorites ❤️</a></li>
+    </ul>
+</nav>
 </header>
 
 <!-- HERO -->
 
 <section class="hero" id="home">
-    <div class="container">
-        <div class="hero-content">
-            <div class="hero-label">Welcome to Wix Creative</div>
+<div class="container">
+    <div class="hero-content">
+        <small>WELCOME TO WIX KITCHEN</small>
 
-            <h1>Find Your Perfect Place To Call Home.</h1>
+        <h1>Good Food.<br>Great Memories.</h1>
 
-            <p>
-                Discover beautiful homes, premium properties
-                and exciting real estate investment opportunities
-                with a team that puts your future first.
-            </p>
+        <p>
+            Discover delicious recipes from around the world.
+            Learn new cooking skills and bring amazing flavours
+            into your kitchen.
+        </p>
 
-            <a href="#properties" class="btn btn-primary">
-                Explore Properties →
-            </a>
-
-            <a href="#contact" class="btn btn-outline">
-                Contact Us
-            </a>
-        </div>
+        <a href="#recipes" class="btn">Explore Recipes →</a>
     </div>
+</div>
+</section>
+
+<!-- SEARCH -->
+
+<div class="search-area">
+<div class="container">
+    <div class="search-box">
+        <input type="search" id="search"
+        placeholder="Search for a recipe...">
+        <button onclick="renderRecipes()">🔍 Search</button>
+    </div>
+</div>
+</div>
+
+<!-- RECIPES -->
+
+<section id="recipes">
+<div class="container">
+
+    <div class="section-title">
+        <small>OUR COLLECTION</small>
+        <h2>Discover Delicious Recipes</h2>
+        <p>Find something amazing to cook today.</p>
+    </div>
+
+    <div class="categories">
+        <button class="category active" data-category="All">All Foods</button>
+        <button class="category" data-category="African">African</button>
+        <button class="category" data-category="Breakfast">Breakfast</button>
+        <button class="category" data-category="Lunch">Lunch</button>
+        <button class="category" data-category="Dinner">Dinner</button>
+        <button class="category" data-category="Dessert">Desserts</button>
+        <button class="category" data-category="Drinks">Drinks</button>
+    </div>
+
+    <div class="recipe-grid" id="recipeGrid"></div>
+
+</div>
 </section>
 
 <!-- ABOUT -->
 
-<section id="about">
-    <div class="container about-grid">
+<section class="about" id="about">
+<div class="container about-grid">
 
-        <div class="about-image">
-            <img
-                src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=900"
-                alt="Modern luxury home">
-        </div>
-
-        <div class="about-text">
-            <small style="color:#2875bd;font-weight:bold">
-                ABOUT OUR COMPANY
-            </small>
-
-            <h2>We Help You Find More Than Just A House.</h2>
-
-            <p>
-                At Wix Creative, we believe that finding the
-                right property is about finding the perfect
-                place for your dreams to grow.
-            </p>
-
-            <p>
-                Our mission is to make property buying, selling
-                and renting easier through professional service,
-                transparency and attention to detail.
-            </p>
-
-            <a href="#contact" class="btn btn-primary">
-                Learn More →
-            </a>
-        </div>
-
+    <div>
+        <img
+        src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?w=900"
+        alt="Beautiful kitchen">
     </div>
+
+    <div class="about-text">
+        <small style="color:#d6a844">OUR STORY</small>
+
+        <h2>Cooking Is An Art. Food Is A Language.</h2>
+
+        <p>
+            Welcome to Wix Kitchen, your home for delicious
+            recipes, creative cooking ideas and culinary inspiration.
+        </p>
+
+        <p>
+            From traditional African meals to international
+            favourites, we bring food lovers together through
+            simple recipes and exciting flavours.
+        </p>
+
+        <a href="#recipes" class="btn">Discover More</a>
+    </div>
+
+</div>
 </section>
 
-<!-- SERVICES -->
+<!-- COOKING TIPS -->
 
-<section class="services" id="services">
-    <div class="container">
+<section id="tips">
+<div class="container">
 
-        <div class="section-title">
-            <small>WHAT WE OFFER</small>
-            <h2>Our Real Estate Services</h2>
-            <p>Professional property solutions designed around your needs.</p>
-        </div>
-
-        <div class="service-grid">
-
-            <div class="service-card">
-                <div class="service-icon">🏠</div>
-                <h3>Property Sales</h3>
-                <p>Find your dream home or sell your property with confidence.</p>
-            </div>
-
-            <div class="service-card">
-                <div class="service-icon">🔑</div>
-                <h3>Property Rentals</h3>
-                <p>Discover comfortable and quality rental properties.</p>
-            </div>
-
-            <div class="service-card">
-                <div class="service-icon">📈</div>
-                <h3>Property Investment</h3>
-                <p>Explore real estate opportunities for your investment goals.</p>
-            </div>
-
-            <div class="service-card">
-                <div class="service-icon">🏢</div>
-                <h3>Commercial Properties</h3>
-                <p>Find the right spaces for your business and operations.</p>
-            </div>
-
-            <div class="service-card">
-                <div class="service-icon">📋</div>
-                <h3>Property Consultation</h3>
-                <p>Get guidance when making important property decisions.</p>
-            </div>
-
-            <div class="service-card">
-                <div class="service-icon">🤝</div>
-                <h3>Property Management</h3>
-                <p>Professional support for managing your real estate assets.</p>
-            </div>
-
-        </div>
+    <div class="section-title">
+        <small>LEARN WITH US</small>
+        <h2>Kitchen Tips & Tricks</h2>
+        <p>Make every meal more delicious.</p>
     </div>
+
+    <div class="tips-grid">
+
+        <div class="tip">
+            <div class="icon">🔪</div>
+            <h3>Prepare Your Ingredients</h3>
+            <p>Wash, measure and arrange your ingredients before cooking.</p>
+        </div>
+
+        <div class="tip">
+            <div class="icon">🔥</div>
+            <h3>Control Your Heat</h3>
+            <p>Choose the right cooking temperature to avoid burning food.</p>
+        </div>
+
+        <div class="tip">
+            <div class="icon">🧂</div>
+            <h3>Season Carefully</h3>
+            <p>Add seasoning gradually and taste your food as you cook.</p>
+        </div>
+
+    </div>
+</div>
 </section>
 
-<!-- PROPERTIES -->
+<!-- NEWSLETTER -->
 
-<section id="properties">
-    <div class="container">
+<section class="newsletter">
+<div class="container">
+    <h2>Join The Wix Kitchen Family</h2>
+    <p>Get inspired with delicious ideas and recipes.</p>
 
-        <div class="section-title">
-            <small>FEATURED PROPERTIES</small>
-            <h2>Explore Beautiful Properties</h2>
-            <p>Discover spaces that inspire better living.</p>
-        </div>
+    <form onsubmit="subscribe(event)">
+        <input type="email" id="newsletterEmail"
+        placeholder="Enter your email address" required>
+        <button class="btn">Subscribe</button>
+    </form>
 
-        <div class="property-grid">
-
-            <div class="property-card">
-                <div class="property-image">
-                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800"
-                    alt="Modern luxury house">
-                </div>
-                <div class="property-info">
-                    <span class="property-tag">Residential</span>
-                    <h3>Modern Luxury Home</h3>
-                    <p>Beautiful architecture and comfortable living.</p>
-                </div>
-            </div>
-
-            <div class="property-card">
-                <div class="property-image">
-                    <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=800"
-                    alt="Elegant modern interior">
-                </div>
-                <div class="property-info">
-                    <span class="property-tag">Luxury Living</span>
-                    <h3>Elegant Family Residence</h3>
-                    <p>Stylish interiors and spacious surroundings.</p>
-                </div>
-            </div>
-
-            <div class="property-card">
-                <div class="property-image">
-                    <img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=800"
-                    alt="Contemporary residential property">
-                </div>
-                <div class="property-info">
-                    <span class="property-tag">Premium Property</span>
-                    <h3>Contemporary Residence</h3>
-                    <p>Modern design with timeless appeal.</p>
-                </div>
-            </div>
-
-        </div>
-
-        <div style="text-align:center">
-            <a href="#contact" class="btn btn-primary">
-                Enquire About Properties →
-            </a>
-        </div>
-
-    </div>
-</section>
-
-<!-- WHY CHOOSE US -->
-
-<section class="why">
-    <div class="container">
-
-        <div class="section-title">
-            <small>WHY WIX CREATIVE</small>
-            <h2>Why Choose Us?</h2>
-            <p style="color:#c3d1e0">
-                We put your property goals and satisfaction first.
-            </p>
-        </div>
-
-        <div class="why-grid">
-
-            <div class="why-card">
-                <h3>Professional Service</h3>
-                <p>We approach every property enquiry with care and professionalism.</p>
-            </div>
-
-            <div class="why-card">
-                <h3>Client Focused</h3>
-                <p>Your needs and preferences guide our property solutions.</p>
-            </div>
-
-            <div class="why-card">
-                <h3>Trusted Guidance</h3>
-                <p>We help you make informed property decisions.</p>
-            </div>
-
-        </div>
-    </div>
-</section>
-
-<!-- CONTACT -->
-
-<section class="contact" id="contact">
-    <div class="container">
-
-        <div class="section-title">
-            <small>GET IN TOUCH</small>
-            <h2>Let's Find Your Dream Property</h2>
-            <p>Have questions? Send us a message today.</p>
-        </div>
-
-        <div class="contact-grid">
-
-            <div class="contact-details">
-                <h2>Contact Wix Creative</h2>
-
-                <p>📍 Location: Add your business address</p>
-                <p>📞 Phone: Add your phone number</p>
-                <p>✉️ Email: Add your business email</p>
-
-                <p>
-                    We would love to hear about your property
-                    needs. Contact us and let's get started.
-                </p>
-
-                <a href="#home" class="btn btn-primary">
-                    Back to Top ↑
-                </a>
-            </div>
-
-            <form class="contact-form" onsubmit="sendMessage(event)">
-                <h3>Send Us A Message</h3>
-
-                <input type="text" id="name"
-                placeholder="Your Name" required>
-
-                <input type="email" id="email"
-                placeholder="Your Email" required>
-
-                <input type="text" id="subject"
-                placeholder="Property Interest" required>
-
-                <textarea id="message"
-                placeholder="Write your message..." required></textarea>
-
-                <button class="btn btn-primary" type="submit">
-                    Send Message →
-                </button>
-            </form>
-
-        </div>
-    </div>
+    <p id="subscribeMessage"></p>
+</div>
 </section>
 
 <!-- FOOTER -->
 
 <footer>
-    <div class="container">
-        <h2>WIX <span style="color:#e8b85b">CREATIVE.</span></h2>
-
-        <p>Your Property. Your Future. Our Commitment.</p>
-
-        <p>© <span id="year"></span> Wix Creative. All Rights Reserved.</p>
-    </div>
+<div class="container">
+    <h2>WIX KITCHEN.</h2>
+    <p>Good Food. Great Memories.</p>
+    <p>© <span id="year"></span> Wix Kitchen. All Rights Reserved.</p>
+</div>
 </footer>
 
-<!-- WHATSAPP BUTTON -->
+<!-- RECIPE DETAILS MODAL -->
+
+<div class="modal" id="recipeModal" onclick="outsideClose(event)">
+    <div class="modal-content">
+        <button class="close" onclick="closeModal()">×</button>
+        <div id="modalBody"></div>
+    </div>
+</div>
+
+<!-- WHATSAPP -->
 
 <a href="https://wa.me/2340000000000"
-class="whatsapp"
-target="_blank"
-rel="noopener"
-aria-label="Chat with us on WhatsApp">
-    ☎
-</a>
+class="whatsapp" target="_blank" rel="noopener"
+aria-label="WhatsApp">☎</a>
 
 <script>
 
+/* RECIPE DATABASE */
+
+const recipes = [
+
+{
+id:1,
+name:"Nigerian Jollof Rice",
+category:"African",
+time:"45 mins",
+level:"Medium",
+image:"https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=800",
+description:"A delicious West African rice dish full of flavour.",
+ingredients:[
+"2 cups long-grain rice",
+"4 tomatoes",
+"2 red bell peppers",
+"1 onion",
+"2 tablespoons tomato paste",
+"Vegetable oil",
+"Stock, thyme and curry",
+"Salt and seasoning"
+],
+steps:[
+"Blend tomatoes, peppers and onion.",
+"Heat oil and fry the tomato paste.",
+"Add the blended pepper mixture and cook until reduced.",
+"Add stock, seasoning and spices.",
+"Wash the rice and add to the sauce.",
+"Cover and cook on low heat until the rice is tender.",
+"Stir gently and serve hot."
+]
+},
+
+{
+id:2,
+name:"Creamy Chicken Pasta",
+category:"Dinner",
+time:"30 mins",
+level:"Easy",
+image:"https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=800",
+description:"Creamy pasta with tender chicken and delicious sauce.",
+ingredients:[
+"250g pasta",
+"2 chicken breasts",
+"1 cup cooking cream",
+"2 garlic cloves",
+"1 onion",
+"Parmesan cheese",
+"Black pepper and salt",
+"Olive oil"
+],
+steps:[
+"Boil pasta according to packet instructions.",
+"Cut chicken into small pieces.",
+"Fry chicken until fully cooked.",
+"Add garlic and chopped onion.",
+"Pour in the cream and stir.",
+"Add cheese and season to taste.",
+"Mix in the cooked pasta and serve."
+]
+},
+
+{
+id:3,
+name:"Classic Pancakes",
+category:"Breakfast",
+time:"20 mins",
+level:"Easy",
+image:"https://images.unsplash.com/photo-1528207776546-365bb710ee93?w=800",
+description:"Soft, fluffy pancakes perfect for breakfast.",
+ingredients:[
+"1 cup flour",
+"1 egg",
+"1 cup milk",
+"2 tablespoons sugar",
+"1 teaspoon baking powder",
+"Butter",
+"A pinch of salt"
+],
+steps:[
+"Mix flour, sugar, baking powder and salt.",
+"Add milk and egg.",
+"Whisk until smooth.",
+"Heat a lightly buttered pan.",
+"Pour in some batter.",
+"Cook until bubbles appear and flip.",
+"Cook the other side and serve."
+]
+},
+
+{
+id:4,
+name:"Grilled Chicken",
+category:"Lunch",
+time:"50 mins",
+level:"Medium",
+image:"https://images.unsplash.com/photo-1532550907401-a500c9a57435?w=800",
+description:"Juicy grilled chicken with delicious spices.",
+ingredients:[
+"4 chicken pieces",
+"2 tablespoons olive oil",
+"Garlic",
+"Paprika",
+"Black pepper",
+"Thyme",
+"Salt",
+"Lemon juice"
+],
+steps:[
+"Clean and prepare the chicken.",
+"Mix oil, spices, garlic and lemon juice.",
+"Coat the chicken with the marinade.",
+"Refrigerate for at least 30 minutes.",
+"Grill until fully cooked.",
+"Turn occasionally for even cooking.",
+"Rest briefly and serve."
+]
+},
+
+{
+id:5,
+name:"Chocolate Cake",
+category:"Dessert",
+time:"60 mins",
+level:"Medium",
+image:"https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=800",
+description:"Rich, moist chocolate cake for sweet lovers.",
+ingredients:[
+"2 cups flour",
+"1 cup sugar",
+"1/2 cup cocoa powder",
+"2 eggs",
+"1 cup milk",
+"1/2 cup vegetable oil",
+"1 teaspoon baking powder",
+"Vanilla extract"
+],
+steps:[
+"Preheat oven to 180°C.",
+"Mix flour, sugar, cocoa and baking powder.",
+"Add eggs, milk, oil and vanilla.",
+"Mix until smooth.",
+"Pour into a greased cake pan.",
+"Bake for approximately 30–40 minutes.",
+"Allow to cool before serving."
+]
+},
+
+{
+id:6,
+name:"Fresh Fruit Smoothie",
+category:"Drinks",
+time:"10 mins",
+level:"Easy",
+image:"https://images.unsplash.com/photo-1505252585461-04db1eb84625?w=800",
+description:"A refreshing blend of fruits for any time of day.",
+ingredients:[
+"1 banana",
+"1 cup strawberries",
+"1 cup milk",
+"1/2 cup yoghurt",
+"1 teaspoon honey",
+"Ice cubes"
+],
+steps:[
+"Wash the fruits.",
+"Peel and slice the banana.",
+"Add all ingredients to a blender.",
+"Blend until smooth.",
+"Add ice and blend again.",
+"Pour into a glass and enjoy."
+]
+},
+
+{
+id:7,
+name:"Nigerian Fried Rice",
+category:"African",
+time:"40 mins",
+level:"Medium",
+image:"https://images.unsplash.com/photo-1512058564366-18510be2db19?w=800",
+description:"Colourful fried rice with vegetables and spices.",
+ingredients:[
+"2 cups rice",
+"Mixed vegetables",
+"1 onion",
+"Chicken stock",
+"Curry powder",
+"Thyme",
+"Vegetable oil",
+"Salt and seasoning"
+],
+steps:[
+"Cook rice until just tender and drain.",
+"Heat oil in a large pan.",
+"Add onions and mixed vegetables.",
+"Add curry, thyme and seasoning.",
+"Stir in the cooked rice.",
+"Fry together until heated through.",
+"Serve with chicken."
+]
+},
+
+{
+id:8,
+name:"Beef Burger",
+category:"Lunch",
+time:"25 mins",
+level:"Easy",
+image:"https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=800",
+description:"A juicy burger with fresh vegetables and sauce.",
+ingredients:[
+"Burger buns",
+"Ground beef",
+"Cheese slices",
+"Lettuce",
+"Tomatoes",
+"Onion",
+"Salt and pepper",
+"Burger sauce"
+],
+steps:[
+"Season the ground beef.",
+"Shape into burger patties.",
+"Cook patties thoroughly in a hot pan.",
+"Add cheese during the final minute.",
+"Toast the burger buns.",
+"Add lettuce, tomato, onions and sauce.",
+"Place the patty inside and serve."
+]
+},
+
+{
+id:9,
+name:"Vegetable Salad",
+category:"Lunch",
+time:"15 mins",
+level:"Easy",
+image:"https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=800",
+description:"Fresh and colourful vegetables with a tasty dressing.",
+ingredients:[
+"Fresh lettuce",
+"2 tomatoes",
+"1 cucumber",
+"1 carrot",
+"Sweet corn",
+"Olive oil",
+"Lemon juice",
+"Salt"
+],
+steps:[
+"Wash all vegetables thoroughly.",
+"Chop lettuce, tomatoes and cucumber.",
+"Grate the carrot.",
+"Combine everything in a bowl.",
+"Mix olive oil, lemon juice and salt.",
+"Pour dressing over the vegetables.",
+"Toss gently and serve fresh."
+]
+},
+
+{
+id:10,
+name:"Homemade Pizza",
+category:"Dinner",
+time:"50 mins",
+level:"Medium",
+image:"https://images.unsplash.com/photo-1513104890138-7c749659a591?w=800",
+description:"Delicious homemade pizza with cheese and toppings.",
+ingredients:[
+"Pizza dough",
+"Tomato sauce",
+"Mozzarella cheese",
+"Bell peppers",
+"Onions",
+"Mushrooms",
+"Olives",
+"Oregano"
+],
+steps:[
+"Preheat oven to 220°C.",
+"Roll out the pizza dough.",
+"Spread tomato sauce over the base.",
+"Add cheese and your favourite toppings.",
+"Sprinkle oregano.",
+"Bake for 12–15 minutes or until cooked.",
+"Slice and enjoy."
+]
+}
+
+];
+
+/* FAVORITES */
+
+let favorites = JSON.parse(
+    localStorage.getItem("wixFavorites") || "[]"
+);
+
+let selectedCategory = "All";
+let favoritesOnly = false;
+
+function saveFavorites() {
+    localStorage.setItem(
+        "wixFavorites",
+        JSON.stringify(favorites)
+    );
+}
+
+/* DISPLAY RECIPES */
+
+function renderRecipes() {
+
+    const grid = document.getElementById("recipeGrid");
+
+    const query = document.getElementById("search")
+        .value.toLowerCase().trim();
+
+    const filtered = recipes.filter(recipe => {
+
+        const matchesCategory =
+            selectedCategory === "All" ||
+            recipe.category === selectedCategory;
+
+        const matchesSearch =
+            recipe.name.toLowerCase().includes(query) ||
+            recipe.description.toLowerCase().includes(query) ||
+            recipe.category.toLowerCase().includes(query);
+
+        const matchesFavorite =
+            !favoritesOnly || favorites.includes(recipe.id);
+
+        return matchesCategory && matchesSearch && matchesFavorite;
+    });
+
+    if (filtered.length === 0) {
+        grid.innerHTML = `
+        <div class="empty">
+            <h3>No recipes found 😕</h3>
+            <p>Try another search or category.</p>
+        </div>`;
+        return;
+    }
+
+    grid.innerHTML = filtered.map(recipe => `
+        <div class="recipe-card">
+
+            <div class="recipe-image">
+                <img src="${recipe.image}" alt="${recipe.name}"
+                loading="lazy">
+
+                <button class="favorite ${favorites.includes(recipe.id) ? "active" : ""}"
+                onclick="toggleFavorite(${recipe.id})"
+                aria-label="Toggle favorite">
+                    ${favorites.includes(recipe.id) ? "♥" : "♡"}
+                </button>
+            </div>
+
+            <div class="recipe-info">
+                <small>${recipe.category}</small>
+                <h3>${recipe.name}</h3>
+                <p>${recipe.description}</p>
+
+                <div class="recipe-meta">
+                    <span>⏱ ${recipe.time}</span>
+                    <span>👨‍🍳 ${recipe.level}</span>
+                </div>
+
+                <button class="view-recipe"
+                onclick="openRecipe(${recipe.id})">
+                    View Recipe →
+                </button>
+            </div>
+
+        </div>
+    `).join("");
+}
+
+/* CATEGORY FILTER */
+
+document.querySelectorAll(".category").forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        document.querySelectorAll(".category")
+        .forEach(btn => btn.classList.remove("active"));
+
+        button.classList.add("active");
+
+        selectedCategory = button.dataset.category;
+        favoritesOnly = false;
+
+        renderRecipes();
+    });
+
+});
+
+/* SEARCH */
+
+document.getElementById("search")
+.addEventListener("input", renderRecipes);
+
+/* FAVORITE FUNCTION */
+
+function toggleFavorite(id) {
+
+    if (favorites.includes(id)) {
+        favorites = favorites.filter(item => item !== id);
+    } else {
+        favorites.push(id);
+    }
+
+    saveFavorites();
+    renderRecipes();
+}
+
+function showFavorites() {
+
+    favoritesOnly = true;
+    selectedCategory = "All";
+
+    document.querySelectorAll(".category")
+    .forEach(btn => btn.classList.remove("active"));
+
+    document.getElementById("search").value = "";
+
+    renderRecipes();
+
+    closeMenu();
+
+    document.getElementById("recipes")
+    .scrollIntoView({behavior:"smooth"});
+}
+
+/* OPEN RECIPE DETAILS */
+
+function openRecipe(id) {
+
+    const recipe = recipes.find(item => item.id === id);
+
+    if (!recipe) return;
+
+    const modal = document.getElementById("recipeModal");
+
+    document.getElementById("modalBody").innerHTML = `
+
+        <img src="${recipe.image}" alt="${recipe.name}">
+
+        <h2>${recipe.name}</h2>
+
+        <p style="color:#d6a844">
+            ⏱ ${recipe.time} | 👨‍🍳 ${recipe.level}
+        </p>
+
+        <p style="color:#bbb;margin-top:10px">
+            ${recipe.description}
+        </p>
+
+        <h3>🥕 Ingredients</h3>
+
+        <ul>
+            ${recipe.ingredients.map(item => `<li>${item}</li>`).join("")}
+        </ul>
+
+        <h3>👨‍🍳 Cooking Instructions</h3>
+
+        <ol>
+            ${recipe.steps.map(step => `<li>${step}</li>`).join("")}
+        </ol>
+
+        <button class="btn" onclick="closeModal()">
+            Done Cooking ✓
+        </button>
+    `;
+
+    modal.classList.add("show");
+    document.body.style.overflow = "hidden";
+}
+
+function closeModal() {
+    document.getElementById("recipeModal").classList.remove("show");
+    document.body.style.overflow = "";
+}
+
+function outsideClose(event) {
+    if (event.target.id === "recipeModal") closeModal();
+}
+
+/* NAVIGATION */
+
 function toggleMenu() {
-    document.getElementById("navLinks").classList.toggle("active");
+    document.getElementById("navLinks")
+    .classList.toggle("active");
 }
 
 function closeMenu() {
-    document.getElementById("navLinks").classList.remove("active");
+    document.getElementById("navLinks")
+    .classList.remove("active");
 }
+
+/* NEWSLETTER DEMO */
+
+function subscribe(event) {
+
+    event.preventDefault();
+
+    document.getElementById("subscribeMessage")
+    .textContent = "Thank you for joining Wix Kitchen! ❤️";
+
+    document.getElementById("newsletterEmail").value = "";
+}
+
+/* YEAR */
 
 document.getElementById("year").textContent =
     new Date().getFullYear();
 
-function sendMessage(event) {
-    event.preventDefault();
+/* INITIALIZE */
 
-    const name = document.getElementById("name").value;
-    const email = document.getElementById("email").value;
-    const subject = document.getElementById("subject").value;
-    const message = document.getElementById("message").value;
-
-    const phone = "2340000000000";
-
-    const text = `Hello Wix Creative!
-
-Name: ${name}
-Email: ${email}
-Property Interest: ${subject}
-Message: ${message}`;
-
-    window.open(
-        "https://wa.me/" + phone + "?text=" +
-        encodeURIComponent(text),
-        "_blank"
-    );
-}
+renderRecipes();
 
 </script>
 
