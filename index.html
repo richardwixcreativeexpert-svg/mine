@@ -1,114 +1,807 @@
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Catch the Box Game</title>
-    <style>
-        body {
-            font-family: Arial;
-            text-align: center;
-            background: #151525;
-            color: white;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Wix Creative Real Estate - Discover beautiful homes, luxury properties and investment opportunities.">
+<title>Wix Creative | Find Your Dream Home</title>
 
-        h1 {
-            color: #00ff99;
-        }
+<style>
+:root {
+    --blue: #123e75;
+    --dark: #102b4e;
+    --light: #f3f7fc;
+    --white: #ffffff;
+    --gold: #e8b85b;
+    --text: #526176;
+}
 
-        #game {
-            width: 350px;
-            height: 350px;
-            background: #292943;
-            margin: 20px auto;
-            position: relative;
-            border: 3px solid #00ff99;
-            border-radius: 10px;
-        }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
 
-        #box {
-            width: 45px;
-            height: 45px;
-            background: #ff4757;
-            position: absolute;
-            cursor: pointer;
-            border-radius: 8px;
-        }
+body {
+    font-family: Arial, sans-serif;
+    color: var(--dark);
+    line-height: 1.6;
+}
 
-        button {
-            padding: 12px 25px;
-            background: #00ff99;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 16px;
-        }
-    </style>
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.container {
+    width: 90%;
+    max-width: 1150px;
+    margin: auto;
+}
+
+/* NAVIGATION */
+
+header {
+    background: white;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 12px #0000000c;
+}
+
+nav {
+    min-height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: 800;
+    color: var(--blue);
+}
+
+.logo span {
+    color: var(--gold);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    list-style: none;
+}
+
+.nav-links a:hover {
+    color: #2678cb;
+}
+
+.nav-btn {
+    background: var(--blue);
+    color: white !important;
+    padding: 11px 20px;
+    border-radius: 6px;
+}
+
+.menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 27px;
+    color: var(--blue);
+    cursor: pointer;
+}
+
+/* HERO */
+
+.hero {
+    min-height: 570px;
+    display: flex;
+    align-items: center;
+    background:
+    linear-gradient(90deg, #071e3be8, #071e3b55),
+    url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1800') center/cover;
+    color: white;
+}
+
+.hero-content {
+    max-width: 700px;
+    padding: 90px 0;
+}
+
+.hero-label {
+    color: var(--gold);
+    font-weight: bold;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.hero h1 {
+    font-size: clamp(40px, 6vw, 66px);
+    line-height: 1.15;
+    margin: 20px 0;
+}
+
+.hero p {
+    font-size: 18px;
+    color: #e5edf7;
+    max-width: 560px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 14px 25px;
+    border-radius: 6px;
+    font-weight: bold;
+    margin-top: 25px;
+    transition: .3s;
+}
+
+.btn-primary {
+    background: var(--gold);
+    color: #152b43;
+}
+
+.btn-primary:hover {
+    background: white;
+    transform: translateY(-3px);
+}
+
+.btn-outline {
+    border: 1px solid white;
+    color: white;
+    margin-left: 10px;
+}
+
+.btn-outline:hover {
+    background: white;
+    color: var(--blue);
+}
+
+/* GENERAL */
+
+section {
+    padding: 85px 0;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.section-title small {
+    color: #2875bd;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.section-title h2 {
+    font-size: 35px;
+    margin-top: 10px;
+}
+
+.section-title p {
+    color: var(--text);
+    max-width: 600px;
+    margin: 10px auto;
+}
+
+/* ABOUT */
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 50px;
+}
+
+.about-image img {
+    width: 100%;
+    border-radius: 12px;
+}
+
+.about-text h2 {
+    font-size: 35px;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.about-text p {
+    color: var(--text);
+    margin-bottom: 15px;
+}
+
+/* SERVICES */
+
+.services {
+    background: var(--light);
+}
+
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.service-card {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 25px #18395a0a;
+    transition: .3s;
+}
+
+.service-card:hover {
+    transform: translateY(-7px);
+}
+
+.service-icon {
+    font-size: 38px;
+    margin-bottom: 15px;
+}
+
+.service-card h3 {
+    margin-bottom: 10px;
+}
+
+.service-card p {
+    color: var(--text);
+}
+
+/* PROPERTIES */
+
+.property-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.property-card {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 25px #18395a14;
+    background: white;
+}
+
+.property-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+    transition: .4s;
+}
+
+.property-card:hover img {
+    transform: scale(1.04);
+}
+
+.property-image {
+    overflow: hidden;
+}
+
+.property-info {
+    padding: 20px;
+}
+
+.property-info h3 {
+    margin-bottom: 8px;
+}
+
+.property-info p {
+    color: var(--text);
+    font-size: 14px;
+}
+
+.property-tag {
+    color: #2875bd;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* WHY US */
+
+.why {
+    background: var(--dark);
+    color: white;
+}
+
+.why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    text-align: center;
+}
+
+.why-card {
+    padding: 25px;
+}
+
+.why-card h3 {
+    color: var(--gold);
+    margin-bottom: 10px;
+}
+
+/* CONTACT */
+
+.contact {
+    background: var(--light);
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.contact-details p {
+    margin: 20px 0;
+    color: var(--text);
+}
+
+.contact-form {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 14px;
+    margin: 10px 0;
+    border: 1px solid #dce3ec;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 15px;
+}
+
+.contact-form textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.contact-form button {
+    width: 100%;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* FOOTER */
+
+footer {
+    background: #0b1d32;
+    color: white;
+    padding: 40px 0;
+    text-align: center;
+}
+
+footer p {
+    color: #b9c7d7;
+    margin-top: 10px;
+}
+
+/* WHATSAPP */
+
+.whatsapp {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background: #25d366;
+    color: white;
+    width: 58px;
+    height: 58px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 28px;
+    border-radius: 50%;
+    z-index: 1000;
+    box-shadow: 0 4px 15px #0003;
+}
+
+/* MOBILE */
+
+@media(max-width: 768px) {
+    .menu-btn {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 75px;
+        left: 0;
+        width: 100%;
+        background: white;
+        flex-direction: column;
+        padding: 25px;
+        gap: 20px;
+        box-shadow: 0 8px 15px #0001;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .hero {
+        min-height: 520px;
+    }
+
+    .hero-content {
+        padding: 70px 0;
+    }
+
+    .about-grid,
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .service-grid,
+    .property-grid,
+    .why-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section-title h2 {
+        font-size: 29px;
+    }
+
+    .btn-outline {
+        margin-left: 0;
+    }
+}
+</style>
 </head>
 
 <body>
 
-    <h1>🎮 Catch the Box!</h1>
+<header>
+    <nav class="container">
+        <a href="#home" class="logo">WIX<span> CREATIVE.</span></a>
 
-    <h2>Score: <span id="score">0</span></h2>
-    <h3>Time: <span id="time">30</span>s</h3>
+        <button class="menu-btn" onclick="toggleMenu()" aria-label="Toggle navigation">☰</button>
 
-    <div id="game">
-        <div id="box"></div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#home" onclick="closeMenu()">Home</a></li>
+            <li><a href="#about" onclick="closeMenu()">About</a></li>
+            <li><a href="#services" onclick="closeMenu()">Services</a></li>
+            <li><a href="#properties" onclick="closeMenu()">Properties</a></li>
+            <li><a href="#contact" class="nav-btn" onclick="closeMenu()">Contact Us</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+    <div class="container">
+        <div class="hero-content">
+            <div class="hero-label">Welcome to Wix Creative</div>
+
+            <h1>Find Your Perfect Place To Call Home.</h1>
+
+            <p>
+                Discover beautiful homes, premium properties
+                and exciting real estate investment opportunities
+                with a team that puts your future first.
+            </p>
+
+            <a href="#properties" class="btn btn-primary">
+                Explore Properties →
+            </a>
+
+            <a href="#contact" class="btn btn-outline">
+                Contact Us
+            </a>
+        </div>
     </div>
+</section>
 
-    <button onclick="startGame()">Start Game</button>
+<!-- ABOUT -->
 
-    <script>
-        let score = 0;
-        let time = 30;
-        let timer;
-        let playing = false;
+<section id="about">
+    <div class="container about-grid">
 
-        const box = document.getElementById("box");
-        const game = document.getElementById("game");
+        <div class="about-image">
+            <img
+                src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=900"
+                alt="Modern luxury home">
+        </div>
 
-        function moveBox() {
-            let maxX = game.clientWidth - box.offsetWidth;
-            let maxY = game.clientHeight - box.offsetHeight;
+        <div class="about-text">
+            <small style="color:#2875bd;font-weight:bold">
+                ABOUT OUR COMPANY
+            </small>
 
-            box.style.left = Math.random() * maxX + "px";
-            box.style.top = Math.random() * maxY + "px";
-        }
+            <h2>We Help You Find More Than Just A House.</h2>
 
-        function startGame() {
-            clearInterval(timer);
+            <p>
+                At Wix Creative, we believe that finding the
+                right property is about finding the perfect
+                place for your dreams to grow.
+            </p>
 
-            score = 0;
-            time = 30;
-            playing = true;
+            <p>
+                Our mission is to make property buying, selling
+                and renting easier through professional service,
+                transparency and attention to detail.
+            </p>
 
-            document.getElementById("score").textContent = score;
-            document.getElementById("time").textContent = time;
+            <a href="#contact" class="btn btn-primary">
+                Learn More →
+            </a>
+        </div>
 
-            box.style.display = "block";
-            moveBox();
+    </div>
+</section>
 
-            timer = setInterval(function() {
-                time--;
-                document.getElementById("time").textContent = time;
+<!-- SERVICES -->
 
-                if (time <= 0) {
-                    clearInterval(timer);
-                    playing = false;
-                    box.style.display = "none";
-                    alert("Game Over! Your score: " + score);
-                }
-            }, 1000);
-        }
+<section class="services" id="services">
+    <div class="container">
 
-        box.onclick = function() {
-            if (!playing) return;
+        <div class="section-title">
+            <small>WHAT WE OFFER</small>
+            <h2>Our Real Estate Services</h2>
+            <p>Professional property solutions designed around your needs.</p>
+        </div>
 
-            score++;
-            document.getElementById("score").textContent = score;
-            moveBox();
-        };
-    </script>
+        <div class="service-grid">
+
+            <div class="service-card">
+                <div class="service-icon">🏠</div>
+                <h3>Property Sales</h3>
+                <p>Find your dream home or sell your property with confidence.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🔑</div>
+                <h3>Property Rentals</h3>
+                <p>Discover comfortable and quality rental properties.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">📈</div>
+                <h3>Property Investment</h3>
+                <p>Explore real estate opportunities for your investment goals.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🏢</div>
+                <h3>Commercial Properties</h3>
+                <p>Find the right spaces for your business and operations.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">📋</div>
+                <h3>Property Consultation</h3>
+                <p>Get guidance when making important property decisions.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🤝</div>
+                <h3>Property Management</h3>
+                <p>Professional support for managing your real estate assets.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- PROPERTIES -->
+
+<section id="properties">
+    <div class="container">
+
+        <div class="section-title">
+            <small>FEATURED PROPERTIES</small>
+            <h2>Explore Beautiful Properties</h2>
+            <p>Discover spaces that inspire better living.</p>
+        </div>
+
+        <div class="property-grid">
+
+            <div class="property-card">
+                <div class="property-image">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800"
+                    alt="Modern luxury house">
+                </div>
+                <div class="property-info">
+                    <span class="property-tag">Residential</span>
+                    <h3>Modern Luxury Home</h3>
+                    <p>Beautiful architecture and comfortable living.</p>
+                </div>
+            </div>
+
+            <div class="property-card">
+                <div class="property-image">
+                    <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=800"
+                    alt="Elegant modern interior">
+                </div>
+                <div class="property-info">
+                    <span class="property-tag">Luxury Living</span>
+                    <h3>Elegant Family Residence</h3>
+                    <p>Stylish interiors and spacious surroundings.</p>
+                </div>
+            </div>
+
+            <div class="property-card">
+                <div class="property-image">
+                    <img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=800"
+                    alt="Contemporary residential property">
+                </div>
+                <div class="property-info">
+                    <span class="property-tag">Premium Property</span>
+                    <h3>Contemporary Residence</h3>
+                    <p>Modern design with timeless appeal.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div style="text-align:center">
+            <a href="#contact" class="btn btn-primary">
+                Enquire About Properties →
+            </a>
+        </div>
+
+    </div>
+</section>
+
+<!-- WHY CHOOSE US -->
+
+<section class="why">
+    <div class="container">
+
+        <div class="section-title">
+            <small>WHY WIX CREATIVE</small>
+            <h2>Why Choose Us?</h2>
+            <p style="color:#c3d1e0">
+                We put your property goals and satisfaction first.
+            </p>
+        </div>
+
+        <div class="why-grid">
+
+            <div class="why-card">
+                <h3>Professional Service</h3>
+                <p>We approach every property enquiry with care and professionalism.</p>
+            </div>
+
+            <div class="why-card">
+                <h3>Client Focused</h3>
+                <p>Your needs and preferences guide our property solutions.</p>
+            </div>
+
+            <div class="why-card">
+                <h3>Trusted Guidance</h3>
+                <p>We help you make informed property decisions.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+
+<section class="contact" id="contact">
+    <div class="container">
+
+        <div class="section-title">
+            <small>GET IN TOUCH</small>
+            <h2>Let's Find Your Dream Property</h2>
+            <p>Have questions? Send us a message today.</p>
+        </div>
+
+        <div class="contact-grid">
+
+            <div class="contact-details">
+                <h2>Contact Wix Creative</h2>
+
+                <p>📍 Location: Add your business address</p>
+                <p>📞 Phone: Add your phone number</p>
+                <p>✉️ Email: Add your business email</p>
+
+                <p>
+                    We would love to hear about your property
+                    needs. Contact us and let's get started.
+                </p>
+
+                <a href="#home" class="btn btn-primary">
+                    Back to Top ↑
+                </a>
+            </div>
+
+            <form class="contact-form" onsubmit="sendMessage(event)">
+                <h3>Send Us A Message</h3>
+
+                <input type="text" id="name"
+                placeholder="Your Name" required>
+
+                <input type="email" id="email"
+                placeholder="Your Email" required>
+
+                <input type="text" id="subject"
+                placeholder="Property Interest" required>
+
+                <textarea id="message"
+                placeholder="Write your message..." required></textarea>
+
+                <button class="btn btn-primary" type="submit">
+                    Send Message →
+                </button>
+            </form>
+
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+    <div class="container">
+        <h2>WIX <span style="color:#e8b85b">CREATIVE.</span></h2>
+
+        <p>Your Property. Your Future. Our Commitment.</p>
+
+        <p>© <span id="year"></span> Wix Creative. All Rights Reserved.</p>
+    </div>
+</footer>
+
+<!-- WHATSAPP BUTTON -->
+
+<a href="https://wa.me/2340000000000"
+class="whatsapp"
+target="_blank"
+rel="noopener"
+aria-label="Chat with us on WhatsApp">
+    ☎
+</a>
+
+<script>
+
+function toggleMenu() {
+    document.getElementById("navLinks").classList.toggle("active");
+}
+
+function closeMenu() {
+    document.getElementById("navLinks").classList.remove("active");
+}
+
+document.getElementById("year").textContent =
+    new Date().getFullYear();
+
+function sendMessage(event) {
+    event.preventDefault();
+
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const subject = document.getElementById("subject").value;
+    const message = document.getElementById("message").value;
+
+    const phone = "2340000000000";
+
+    const text = `Hello Wix Creative!
+
+Name: ${name}
+Email: ${email}
+Property Interest: ${subject}
+Message: ${message}`;
+
+    window.open(
+        "https://wa.me/" + phone + "?text=" +
+        encodeURIComponent(text),
+        "_blank"
+    );
+}
+
+</script>
 
 </body>
 </html>
