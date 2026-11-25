@@ -1,0 +1,114 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Catch the Box Game</title>
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            background: #151525;
+            color: white;
+        }
+
+        h1 {
+            color: #00ff99;
+        }
+
+        #game {
+            width: 350px;
+            height: 350px;
+            background: #292943;
+            margin: 20px auto;
+            position: relative;
+            border: 3px solid #00ff99;
+            border-radius: 10px;
+        }
+
+        #box {
+            width: 45px;
+            height: 45px;
+            background: #ff4757;
+            position: absolute;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+
+        button {
+            padding: 12px 25px;
+            background: #00ff99;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>🎮 Catch the Box!</h1>
+
+    <h2>Score: <span id="score">0</span></h2>
+    <h3>Time: <span id="time">30</span>s</h3>
+
+    <div id="game">
+        <div id="box"></div>
+    </div>
+
+    <button onclick="startGame()">Start Game</button>
+
+    <script>
+        let score = 0;
+        let time = 30;
+        let timer;
+        let playing = false;
+
+        const box = document.getElementById("box");
+        const game = document.getElementById("game");
+
+        function moveBox() {
+            let maxX = game.clientWidth - box.offsetWidth;
+            let maxY = game.clientHeight - box.offsetHeight;
+
+            box.style.left = Math.random() * maxX + "px";
+            box.style.top = Math.random() * maxY + "px";
+        }
+
+        function startGame() {
+            clearInterval(timer);
+
+            score = 0;
+            time = 30;
+            playing = true;
+
+            document.getElementById("score").textContent = score;
+            document.getElementById("time").textContent = time;
+
+            box.style.display = "block";
+            moveBox();
+
+            timer = setInterval(function() {
+                time--;
+                document.getElementById("time").textContent = time;
+
+                if (time <= 0) {
+                    clearInterval(timer);
+                    playing = false;
+                    box.style.display = "none";
+                    alert("Game Over! Your score: " + score);
+                }
+            }, 1000);
+        }
+
+        box.onclick = function() {
+            if (!playing) return;
+
+            score++;
+            document.getElementById("score").textContent = score;
+            moveBox();
+        };
+    </script>
+
+</body>
+</html>
